@@ -31,7 +31,7 @@ public class PlaceholderAPIObjective extends XLObjective {
     public boolean loadTournament(Tournament tournament, FileConfiguration config) {
         String objective = config.getString("objective");
         if (objective.contains(";")) {
-            String placeholder = objective.substring(objective.lastIndexOf(";") + 1).replace("%", "");
+            String placeholder = objective.substring(objective.indexOf(";") + 1).replace("%", "");
             tournament.setMeta("PLACEHOLDER", placeholder);
 
             if (task == null || task.isCancelled()) {
